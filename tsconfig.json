@@ -4,6 +4,9 @@
     "module": "esnext",
     "outDir": "dist/mjs",
     "target": "esnext",
-    "types" : ["gapi", "gapi.auth2"]
+    "types": [
+      "gapi",
+      "gapi.auth2"
+    ],
   }
 }

@@ -133,7 +133,7 @@ const GapiProvider = ({ apiKey, clientId, scopes, gapiDrivers, children }) => {
      */
     const loadClient = () => {
         try {
-            gapi.load('client:auth2', initClient);
+            gapi.load('auth2', initClient);
         }
         catch (e) {
             assignGapiError(e);

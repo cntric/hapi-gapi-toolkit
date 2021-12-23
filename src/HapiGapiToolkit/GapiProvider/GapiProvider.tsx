@@ -252,7 +252,7 @@ export const GapiProvider : FC<GapiProviderProps> =
         const loadClient = ()=>{
 
             try {
-                gapi.load('client:auth2', initClient);
+                gapi.load('auth2', initClient);
             } catch(e) {
                 assignGapiError(e as Error);
             }
