@@ -205,7 +205,7 @@ export const GapiProvider : FC<GapiProviderProps> =
             );
 
             gapi.auth2.getAuthInstance().signIn({
-                prompt : "consent"
+                prompt : "select_account+consent"
             });
         
         }
@@ -226,7 +226,7 @@ export const GapiProvider : FC<GapiProviderProps> =
                     apiKey: apiKey,
                     clientId: clientId,
                     scope: scopes,
-                    prompt : "consent"
+                    prompt : "select_account+consent"
                 } as any).then(()=>{
                     gapi.auth2.getAuthInstance().isSignedIn.listen(updateStatus);
                     dispatch(

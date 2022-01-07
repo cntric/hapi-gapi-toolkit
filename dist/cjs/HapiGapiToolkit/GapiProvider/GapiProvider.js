@@ -107,7 +107,7 @@ const GapiProvider = ({ apiKey, clientId, scopes, gapiDrivers, children }) => {
             payload: Object.assign(Object.assign({}, state), { gapiSigningIn: !gapi.auth2.getAuthInstance().isSignedIn.get() })
         });
         gapi.auth2.getAuthInstance().signIn({
-            prompt: "consent"
+            prompt: "select_account+consent"
         });
     });
     const handleSignOutClick = (event) => __awaiter(void 0, void 0, void 0, function* () {
@@ -122,7 +122,7 @@ const GapiProvider = ({ apiKey, clientId, scopes, gapiDrivers, children }) => {
             apiKey: apiKey,
             clientId: clientId,
             scope: scopes,
-            prompt: "consent"
+            prompt: "select_account+consent"
         }).then(() => {
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateStatus);
             dispatch({
