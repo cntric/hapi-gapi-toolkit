@@ -117,7 +117,9 @@ export const GapiProvider = ({ apiKey, clientId, scopes, gapiDrivers, children }
                 gapiSigningIn: !gapi.auth2.getAuthInstance().isSignedIn.get(),
             }
         });
-        gapi.auth2.getAuthInstance().signIn();
+        gapi.auth2.getAuthInstance().signIn({
+            prompt: "consent"
+        });
     };
     const handleSignOutClick = async (event) => {
         gapi.auth2.getAuthInstance().signOut();
@@ -130,7 +132,8 @@ export const GapiProvider = ({ apiKey, clientId, scopes, gapiDrivers, children }
         gapi.client.init({
             apiKey: apiKey,
             clientId: clientId,
-            scope: scopes
+            scope: scopes,
+            prompt: "consent"
         }).then(() => {
             gapi.auth2.getAuthInstance().isSignedIn.listen(updateStatus);
             dispatch({
